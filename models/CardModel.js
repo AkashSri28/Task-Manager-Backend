@@ -18,7 +18,7 @@ const cardSchema = new Schema({
     }],
     column:{
         type: String,
-        default: "To-do"
+        default: "To do"
     },
     dueDate:Date
 }, {timestamps: true})
