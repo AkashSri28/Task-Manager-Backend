@@ -12,7 +12,7 @@ const cardRoutes = require('./routes/cards')
 const app = express();
 
 // Middleware
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
@@ -32,41 +32,35 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 
 // Define the schema for the User model
-const userSchema = new mongoose.Schema({
-  username: String,
-  password: String,
-});
-const User = mongoose.model('User', userSchema);
+// const userSchema = new mongoose.Schema({
+//   username: String,
+//   password: String,
+// });
+// const User = mongoose.model('User', userSchema);
 
 // Define the schema for the Board model
-const boardSchema = new mongoose.Schema({
-  title: String,
-  lists: [{
-    title: String,
-    cards: [{
-      title: String,
-      description: String,
-    }],
-  }],
-});
-const Board = mongoose.model('Board', boardSchema);
+// const boardSchema = new mongoose.Schema({
+//   title: String,
+//   lists: [{
+//     title: String,
+//     cards: [{
+//       title: String,
+//       description: String,
+//     }],
+//   }],
+// });
+// const Board = mongoose.model('Board', boardSchema);
 
-// Define the schema for the Card model
-const cardSchema = new mongoose.Schema({
-  title: String,
-  description: String,
-});
-const Card = mongoose.model('Card', cardSchema);
 
 // Define the schema for the List model
-const listSchema = new mongoose.Schema({
-  title: String,
-  cards: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Card',
-  }],
-});
-const List = mongoose.model('List', listSchema);
+// const listSchema = new mongoose.Schema({
+//   title: String,
+//   cards: [{
+//     type: mongoose.Schema.Types.ObjectId,
+//     ref: 'Card',
+//   }],
+// });
+// const List = mongoose.model('List', listSchema);
 
 // Routes
 app.use('/api/cards', cardRoutes);

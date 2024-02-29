@@ -16,7 +16,12 @@ const cardSchema = new Schema({
         title: String,
         completed: Boolean
     }],
+    column:{
+        type: String,
+        default: "To-do"
+    },
     dueDate:Date
 }, {timestamps: true})
 
-module.exports = mongoose.model('Card', CardSchema)
+
+module.exports = mongoose.model('Card', cardSchema)
