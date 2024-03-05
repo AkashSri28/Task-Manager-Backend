@@ -7,6 +7,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const cardRoutes = require('./routes/cards')
+const userRoutes = require('./routes/user')
 
 // Create Express app
 const app = express();
@@ -64,5 +65,6 @@ mongoose.connect(process.env.MONGO_URI, {
 
 // Routes
 app.use('/api/cards', cardRoutes);
+app.use('/api/user', userRoutes);
 
 
