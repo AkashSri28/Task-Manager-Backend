@@ -20,7 +20,11 @@ const cardSchema = new Schema({
         type: String,
         default: "To do"
     },
-    dueDate:Date
+    dueDate:Date,
+    user_id:{
+        type: String,
+        required: true
+    }
 }, {timestamps: true})
 
 

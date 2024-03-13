@@ -1,7 +1,10 @@
 const express = require('express')
-const { createCard, getAllCards, getCard, deleteCard, updateCard } = require('../controllers/cardControllers')
+const { createCard, getAllCards, getCard, deleteCard, updateCard } = require('../controllers/cardControllers');
+const requireAuth = require('../middleware/requireAuth');
 const router = express.Router()
 
+//require auth for all card routes
+router.use(requireAuth)
 
 //Define the routes
 

@@ -25,11 +25,15 @@ const getCard = async (req, res)=>{
 
 //Create a card
 const createCard = async (req, res)=>{
+    // console.log('create card method')
     const {title, priority, tasks, dueDate} = req.body;
     try {
+        const user_id = req.user._id
+        console.log(req.user._id)
         const card = await Card.create({
-            title, priority, tasks, dueDate
+            title, priority, tasks, dueDate, user_id
         })
+        console.log(card)
         res.status(200).json(card)
     } catch (error) {
         res.status(400).json({error:error.message})
